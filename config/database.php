@@ -4,11 +4,11 @@
  * Centro Clínico v2
  */
 
-define('DB_HOST', '127.0.0.1');
-define('DB_USER', 'root');
-define('DB_PASS', '');
-define('DB_NAME', 'centro_clinico_v2');
-define('DB_PORT', 3307);
+define('DB_HOST', 'sql10.freesqldatabase.com');
+define('DB_USER', 'sql10815623');
+define('DB_PASS', 'tBPcnIApuu');
+define('DB_NAME', 'sql10815623');
+define('DB_PORT', 3306);
 
 /**
  * Conexión global (mysqli)
