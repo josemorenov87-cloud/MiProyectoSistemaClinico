@@ -1,0 +1,580 @@
+<?php
+  session_start();
+?>
+<!DOCTYPE html>
+<!--
+This is a starter template page. Use this page to start your new project from
+scratch. This page gets rid of all links and provides the needed markup only.
+-->
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sistema clinico</title>
+<script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .required:after {
+            content: " *";
+            color: red;
+        }
+        .section-title {
+            background-color: #fde0fcff;
+            border-left: 4px solid #f012be;
+        }
+    </style>
+
+  <link rel="icon" href="ruta/a/tu/icono.png" type="image/png">
+
+  <!-- Google Font: Source Sans Pro -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="../public/plugins/fontawesome-free/css/all.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="../public/dist/css/adminlte.min.css">
+</head>
+<body class="hold-transition sidebar-mini">
+<div class="wrapper">
+
+  <!-- Navbar -->
+  <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+    <!-- Left navbar links -->
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+      </li>
+    </ul>
+
+    <!-- Right navbar links -->
+    <ul class="navbar-nav ml-auto">
+      <!-- Navbar Search -->
+      <li class="nav-item">
+        <a class="nav-link" data-widget="navbar-search" href="#" role="button">
+          <i class="fas fa-search"></i>
+        </a>
+        <div class="navbar-search-block">
+          <form class="form-inline">
+            <div class="input-group input-group-sm">
+              <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
+              <div class="input-group-append">
+                <button class="btn btn-navbar" type="submit">
+                  <i class="fas fa-search"></i>
+                </button>
+                <button class="btn btn-navbar" type="button" data-widget="navbar-search">
+                  <i class="fas fa-times"></i>
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </li>
+
+      <!-- Messages Dropdown Menu -->
+      <li class="nav-item dropdown">
+        <a class="nav-link" data-toggle="dropdown" href="#">
+          <i class="far fa-comments"></i>
+          <span class="badge badge-danger navbar-badge">3</span>
+        </a>
+        <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+          <a href="#" class="dropdown-item">
+            <!-- Message Start -->
+            <div class="media">
+              <img src="../public/dist/img/user1-128x128.jpg" alt="User Avatar" class="img-size-50 mr-3 img-circle">
+              <div class="media-body">
+                <h3 class="dropdown-item-title">
+                  Brad Diesel
+                  <span class="float-right text-sm text-danger"><i class="fas fa-star"></i></span>
+                </h3>
+                <p class="text-sm">Call me whenever you can...</p>
+                <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
+              </div>
+            </div>
+            <!-- Message End -->
+          </a>
+          <div class="dropdown-divider"></div>
+          <a href="#" class="dropdown-item">
+            <!-- Message Start -->
+            <div class="media">
+              <img src="../public/dist/img/user8-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
+              <div class="media-body">
+                <h3 class="dropdown-item-title">
+                  John Pierce
+                  <span class="float-right text-sm text-muted"><i class="fas fa-star"></i></span>
+                </h3>
+                <p class="text-sm">I got your message bro</p>
+                <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
+              </div>
+            </div>
+            <!-- Message End -->
+          </a>
+          <div class="dropdown-divider"></div>
+          <a href="#" class="dropdown-item">
+            <!-- Message Start -->
+            <div class="media">
+              <img src="../public/dist/img/user3-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
+              <div class="media-body">
+                <h3 class="dropdown-item-title">
+                  Nora Silvester
+                  <span class="float-right text-sm text-warning"><i class="fas fa-star"></i></span>
+                </h3>
+                <p class="text-sm">The subject goes here</p>
+                <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
+              </div>
+            </div>
+            <!-- Message End -->
+          </a>
+          <div class="dropdown-divider"></div>
+          <a href="#" class="dropdown-item dropdown-footer">See All Messages</a>
+        </div>
+      </li>
+      <!-- Notifications Dropdown Menu -->
+      <li class="nav-item dropdown">
+        <a class="nav-link" data-toggle="dropdown" href="#">
+          <i class="far fa-bell"></i>
+          <span class="badge badge-warning navbar-badge">15</span>
+        </a>
+        <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+          <span class="dropdown-header">15 Notifications</span>
+          <div class="dropdown-divider"></div>
+          <a href="#" class="dropdown-item">
+            <i class="fas fa-envelope mr-2"></i> 4 new messages
+            <span class="float-right text-muted text-sm">3 mins</span>
+          </a>
+          <div class="dropdown-divider"></div>
+          <a href="#" class="dropdown-item">
+            <i class="fas fa-users mr-2"></i> 8 friend requests
+            <span class="float-right text-muted text-sm">12 hours</span>
+          </a>
+          <div class="dropdown-divider"></div>
+          <a href="#" class="dropdown-item">
+            <i class="fas fa-file mr-2"></i> 3 new reports
+            <span class="float-right text-muted text-sm">2 days</span>
+          </a>
+          <div class="dropdown-divider"></div>
+          <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" data-widget="fullscreen" href="#" role="button">
+          <i class="fas fa-expand-arrows-alt"></i>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#" role="button">
+          <i class="fas fa-th-large"></i>
+        </a>
+      </li>
+    </ul>
+  </nav>
+  <!-- /.navbar -->
+
+  <!-- Main Sidebar Container -->
+  <?php include 'includes/sidebar.php' ?>
+  <!-- Contenido Sidebar.php -->
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1 class="m-0">Atención Ginecológica</h1>
+          </div><!-- /.col -->
+        </div><!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
+
+    <!-- Main content -->
+    <div class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-lg-8">            
+            <div class="card card-fuchsia">            
+              <div class="card-header">
+                <h2 class="card-title text-lg font-semibold">Registro de Atención</h2>
+              </div>
+              <div class="card-body">
+                <h2 class="section-title text-lg font-semibold p-2 mb-3">Datos del Paciente</h2>
+                <form>
+                  <div class="row">
+                    <div class="col-sm-4">
+                      <!-- text input -->
+                      <div class="form-group">
+                        <label>Paciente</label>
+                        <input type="text" class="form-control">
+                      </div>
+                    </div>
+                    <div class="col-sm-4">
+                      <div class="form-group">
+                        <label>Historia Clinica</label>
+                        <input type="text" class="form-control" disabled>
+                      </div>
+                    </div>
+                    <div class="col-sm-4">
+                      <div class="form-group">
+                        <label>Edad</label>
+                        <input type="text" class="form-control" disabled>
+                      </div>
+                    </div>
+                  </div>
+                  <h2 class="section-title text-lg font-semibold p-2 mb-3">Signos Vitales</h2>
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <div class="form-group">
+                        <label>Temperatura (°C)</label>
+                        <input type="text" class="form-control" disabled>
+                      </div>
+                    </div>
+                    <div class="col-sm-3">
+                      <div class="form-group">
+                        <label>Presión Arterial (mmHg)</label>
+                        <input type="text" class="form-control" disabled>
+                      </div>
+                    </div>
+                    <div class="col-sm-3">
+                      <div class="form-group">
+                        <label>SpO2 (%)</label>
+                        <input type="text" class="form-control" disabled>
+                      </div>
+                    </div>
+                    <div class="col-sm-3">
+                      <div class="form-group">
+                        <label>Pulso (lpm)</label>
+                        <input type="text" class="form-control" disabled>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <div class="form-group">
+                        <label>Talla (cm)</label>
+                        <input type="text" class="form-control" disabled>
+                      </div>
+                    </div>
+                    <div class="col-sm-3">
+                      <div class="form-group">
+                        <label>Peso (kg)</label>
+                        <input type="text" class="form-control" disabled>
+                      </div>
+                    </div>
+                    <div class="col-sm-3">
+                      <div class="form-group">
+                        <label>IMC</label>
+                        <input type="text" class="form-control" disabled>
+                      </div>
+                    </div>
+                    <div class="col-sm-3">
+                      <div class="form-group">
+                        <label>Interpretación IMC</label>
+                        <input type="text" class="form-control" disabled>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-sm-12">
+                      <div class="form-group">
+                        <!-- <label>Textarea</label> -->
+                          <label>Maniobras realizadas en el Examen</label>
+                        <textarea class="form-control" rows="3"></textarea>
+                      </div>
+                    </div>
+                  </div>
+                  <h2 class="section-title text-lg font-semibold p-2 mb-3">Descripción de la Atención</h2>
+                  <div class="row">
+                    <div class="col-sm-12">
+                      <div class="form-group">
+                        <label>Diagnostico CIE-10</label>
+                        <select class="form-control">                            
+                            <option value="">Seleccionar Diagnostico</option>
+                            <option>F500-Anorexia Nerviosa</option>
+                            <option>F501-Anorexia Nerviosa Atipica</option>
+                            <option>F502-Bulimia Nerviosa</option>
+                          </select>
+                      </div>
+                    </div>
+                    <div class="col-sm-12">
+                      <div class="form-group">
+                        <label>Observación del Diagnostico</label>
+                        <textarea class="form-control" rows="3"></textarea>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-sm-12">
+                      <div class="form-group">
+                        <label>Antecedentes</label>
+                        <textarea class="form-control" rows="3"></textarea>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-sm-6">
+                      <label for="">Utero</label>
+                      <div class="canvas-container" style="align-items: center;">
+                        <img height="100" width="500" src="../img/utero.png" alt="utero">
+                        <!-- <canvas id="drawing-canvas" height="300">
+                          <img src="../img/utero.png" alt="utero">
+                        </canvas> -->
+                      </div>
+                    </div>
+                    <div class="col-sm-6">
+                      <label for="">Cérvix</label>
+                      <div class="canvas-container">
+                        <img height="100vh" width="500" src="../img/cervix.jpg" alt="cervix">
+                        <!-- <canvas id="drawing-canvas" height="300">
+                          <img src="../img/cervix.jpg" alt="cervix">
+                        </canvas> -->
+                      </div>
+                    </div>
+                  </div>
+                  <br>
+                  <h2 class="section-title text-lg font-semibold p-2 mb-3">Orden de Análisis Clínicos</h2>
+                  <div class="row">
+                    <div class="col-sm-4">
+                      <!-- select -->
+                      <div class="form-group">
+                        <label>Tipo de Examen</label>
+                          <select class="form-control">                            
+                            <option value="">Seleccionar Grupo de Análisis</option>
+                            <option>Hematología y Coagulación</option>
+                            <option>Hormonas</option>
+                            <option>Bioquímica</option>
+                            <option>Microbiología</option>
+                          </select>
+                      </div>
+                    </div>
+                    <div class="col-sm-4">
+                      <!-- select -->
+                      <div class="form-group">
+                        <label>Examen Medico</label>
+                          <select class="form-control">                            
+                            <option value="">Seleccionar Examen Médico</option>
+                            <option>Hemograma Completo</option>
+                            <option>Plaquetas</option>
+                            <option>Hemoglobina</option>
+                            <option>Fibrinógeno</option>
+                          </select>
+                      </div>
+                    </div>
+                    <div class="col-sm-4">
+                      <div class="form-group">
+                        <label>Comentarios / Observaciones</label>
+                        <input type="text" class="form-control">
+                      </div>
+                    </div>
+                    <div class="col-sm-2">
+                      <div class="form-group">
+                        <button type="submit" class="btn btn-info">➕</button>
+                        <button type="submit" class="btn btn-info">💾</button>
+                        <button type="submit" class="btn btn-info">🖨️</button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-sm-12">
+                      <div class="form-group">
+                        <!-- <label>Textarea</label>                         
+                        <textarea class="form-control" rows="3"></textarea>--> 
+                        <table class="table table-sm">
+                          <thead>
+                            <tr>
+                              <th style="width: 10px">#</th>
+                              <th>Tipo de Analisis</th>
+                              <th>Tipo de Examen</th>
+                              <th>Comentarios / Observaciones</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td>1.</td>
+                              <td>Imágenes</td>
+                              <td>Ecografía</td>
+                              <td></td>
+                            </tr>
+                            <tr>
+                              <td>2.</td>
+                              <td>Imágenes</td>
+                              <td>Colposcopia</td>
+                              <td></td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                  <h2 class="section-title text-lg font-semibold p-2 mb-3">Tratamiento - Receta Médica</h2>
+                  <br>
+                  <div class="row">
+                    <div class="col-sm-5">
+                      <!-- select -->
+                      <div class="form-group">
+                        <label>Medicamento</label>
+                        <select class="form-control">                            
+                            <option value="">Seleccionar Medicamento</option>
+                            <option>Levonorgestrel 100mg</option>
+                            <option>Medroxiprogesterona 325mg</option>
+                            <option>Piperacilina 250mg</option>
+                            <option>Tramadol 35mg + Paracetamol 50mg</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="col-sm-2">
+                      <div class="form-group">
+                        <label>Presentación</label>
+                        <input type="text" class="form-control">
+                      </div>
+                    </div>
+                    <div class="col-sm-1">
+                      <div class="form-group">
+                        <label>Dosis</label>
+                        <input type="text" class="form-control">
+                      </div>
+                    </div>
+                    <div class="col-sm-2">
+                      <div class="form-group">
+                        <label>Frec. de admin.</label>
+                        <input type="text" class="form-control">
+                      </div>
+                    </div>
+                    <div class="col-sm-2">
+                      <div class="form-group">
+                        <label>Durac. del Trat.</label>
+                        <input type="text" class="form-control">
+                      </div>
+                    </div>
+                    <div class="col-sm-2">
+                      <div class="form-group">
+                        <button type="submit" class="btn btn-info">➕</button>
+                        <button type="submit" class="btn btn-info">💾</button>
+                        <button type="submit" class="btn btn-info">🖨️</button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-sm-12">
+                      <div class="form-group">
+                        <!-- <label>Textarea</label> 
+                        <textarea class="form-control" rows="3"></textarea> -->
+                        <table class="table table-sm">
+                          <thead>
+                            <tr>
+                              <th style="width: 10px">#</th>
+                              <th>Medicamento</th>
+                              <th>Presentación</th>
+                              <th>Dosis</th>
+                              <th>Frecuencia</th>
+                              <th>Dias</th>
+                              <th>Total</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td>1.</td>
+                              <td>Levonorgestrel 100mg</td>
+                              <td>Capsulas</td>
+                              <td>2 unidades</td>
+                              <td>Cada 8 Horas</td>
+                              <td>x 5 dias</td>
+                              <td>90 unidades</td>
+                            </tr>
+                            <tr>
+                              <td>2.</td>
+                              <td>Medroxiprogesterona 325mg</td>
+                              <td>Comprimidos</td>
+                              <td>1.5 unidades</td>
+                              <td>Cada 12 Horas</td>
+                              <td>x 5 dias</td>
+                              <td>15 unidades</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                  <!-- /.card-body -->
+                  <div class="card-footer">
+                    <button type="submit" class="btn btn-info">Guardar</button>
+                  </div>
+                  <!-- /.card-footer -->
+                </form>
+                    <script>
+                        function calcularEdad() {
+                            const fechaNacimiento = new Date(document.getElementById('fechaNacimiento').value);
+                            const hoy = new Date();
+                            
+                            // Calcula la diferencia en años
+                            let edad = hoy.getFullYear() - fechaNacimiento.getFullYear();
+                            
+                            // Ajusta si el cumpleaños aún no ha ocurrido este año
+                            const mes = hoy.getMonth() - fechaNacimiento.getMonth();
+                            if (mes < 0 || (mes === 0 && hoy.getDate() < fechaNacimiento.getDate())) {
+                                edad--;
+                            }
+                            
+                            document.getElementById('edad').value = edad;
+                        }
+                        
+                        // Establecer la fecha de atención automáticamente a hoy
+                        document.addEventListener('DOMContentLoaded', function() {
+                            const today = new Date().toISOString().split('T')[0];
+                            document.getElementById('fechaAtencion').value = today;
+                        });
+                    </script>
+            </div><!-- /.card -->
+          </div>
+          <!-- /.col-md-6 -->
+          <div class="col-lg-4">            
+            <!-- <div class="card card-primary card-outline">
+              <div class="card-header">
+                <h5 class="m-0">Featured</h5>
+              </div>
+              <div class="card-body">
+                <h6 class="card-title">Special title treatment</h6>
+                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                <a href="#" class="btn btn-primary">Go somewhere</a>
+              </div>
+            </div> -->
+          </div>
+          <!-- /.col-md-6 -->
+        </div>
+        <!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+
+  <!-- Control Sidebar -->
+  <aside class="control-sidebar control-sidebar-dark">
+    <!-- Control sidebar content goes here -->
+    <div class="p-3">
+      <h5>Title</h5>
+      <p>Sidebar content</p>
+    </div>
+  </aside>
+  <!-- /.control-sidebar -->
+
+  <!-- Main Footer -->
+  <footer class="main-footer">
+    <!-- To the right -->
+    <div class="float-right d-none d-sm-inline">
+      <!--Anything you want -->
+    </div>
+    <!-- Default to the left -->
+    <strong>Copyright &copy; 2025.</strong> Todos los derechos reservados.
+  </footer>
+</div>
+<!-- ./wrapper -->
+
+<!-- REQUIRED SCRIPTS -->
+
+<!-- jQuery -->
+<script src="../public/plugins/jquery/jquery.min.js"></script>
+<!-- Bootstrap 4 -->
+<script src="../public/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- AdminLTE App -->
+<script src="../public/dist/js/adminlte.min.js"></script>
+</body>
+</html>

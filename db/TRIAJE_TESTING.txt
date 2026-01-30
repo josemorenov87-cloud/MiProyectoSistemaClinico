@@ -1,0 +1,91 @@
+========================================
+GUÍA DE PRUEBA - FORMULARIO TRIAJE
+========================================
+
+✅ ARCHIVOS CREADOS/MODIFICADOS:
+
+1. app/models/Triaje.php
+   - Método guardar() - Inserta datos en tb_triaje
+   - Método getById() - Obtiene un triaje por ID
+   - Método getTriajesPaciente() - Obtiene triajes de un paciente
+   - Método getTriajesPorFecha() - Obtiene triajes por rango de fechas
+
+2. app/controllers/TriajeController.php
+   - Método store() - Recibe POST y guarda en BD
+   - Método show() - GET /triaje/show?id=<id>
+   - Método paciente() - GET /triaje/paciente?numdoc=<dni>
+
+3. views/triaje/index.php (ACTUALIZADO)
+   - Agregó action="/triaje/store" al formulario
+   - Agregó manejador submit() para validación y envío AJAX
+   - Agregó campo Cita con filtrado automático
+   - Agregó campo Fecha Registro (auto-llenado)
+
+4. index.php (YA ACTUALIZADO)
+   - Ruta /api/cita ya agregada
+
+========================================
+PASOS PARA PROBAR:
+========================================
+
+1. EJECUTAR QUERY ALTER TABLE EN BD:
+   ----------
+   ALTER TABLE tb_triaje ADD COLUMN fecha_registro DATETIME DEFAULT CURRENT_TIMESTAMP AFTER interp;
+   ALTER TABLE tb_triaje MODIFY COLUMN id_cita INT(11) NULL;
+
+2. IR AL FORMULARIO:
+   ----------
+   http://localhost/www.sistemaclinico2.com/triaje
+
+3. PROBAR FLUJO:
+   a) Ingresa un número de documento (ej: 32228669)
+   b) Sistema busca automáticamente: Nombre, Historia, Edad
+   c) Sistema carga citas disponibles del paciente
+   d) Selecciona una cita (opcional)
+   e) Ingresa signos vitales:
+      - Temperatura: 37.2
+      - Presión: 120/80
+      - SpO2: 98
+      - Pulso: 75
+      - Talla: 175
+      - Peso: 70
+   f) IMC se calcula automáticamente
+   g) Ingresa alergias (opcional)
+   h) Clic en "Guardar"
+
+4. VERIFICAR EN BD:
+   ----------
+   SELECT * FROM tb_triaje ORDER BY fecha_registro DESC LIMIT 1;
+
+========================================
+RESPUESTA ESPERADA AL GUARDAR:
+========================================
+
+✓ "Triaje registrado correctamente. ID: 123"
+✓ Formulario se limpia automáticamente
+✓ Fecha de registro se actualiza
+
+Si hay error:
+- Revisa Console (F12) para ver la respuesta del servidor
+- Verifica que numdoc_paciente exista en tb_pacientes
+- Revisa que tb_triaje tenga los campos correctos
+
+========================================
+CAMPOS ENVIADOS AL SERVIDOR:
+========================================
+
+id_cita (NULL si no hay cita)
+numdoc_paciente (requerido)
+temp (temperatura)
+presion (presión arterial)
+spo2 (saturación de oxígeno)
+pulso (frecuencia cardíaca)
+talla (altura en cm)
+peso (peso en kg)
+imc (calculado automáticamente)
+imc_interp (interpretación de IMC)
+alergias (texto)
+
+fecha_registro - Se inserta automáticamente con NOW()
+
+========================================
